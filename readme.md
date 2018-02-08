@@ -71,7 +71,7 @@ The folders and files you see in this repositories is how it is expected to be i
     |        └── CsvQueryProcessor.java              // This class is used to read data from CSV file
     |        └── QueryProcessingEngine.java          //abstract class containing three abstract methods that should be implemented in CsvQueryProcessor class
     |    └── test                                     
-    |        |__ DataMungerTest.java                // all your test cases are written using JUnit, these test cases can be run by selecting Run As -> JUnit Test 
+    |        └── DataMungerTest.java                // all your test cases are written using JUnit, these test cases can be run by selecting Run As -> JUnit Test 
     ├── .classpath                                    // This file is generated automatically while creating the project in eclipse
     |
     ├── .hobbes                                       // Hobbes specific config options, such as type of evaluation schema, type of tech stack etc., Have saved default values for convenience
