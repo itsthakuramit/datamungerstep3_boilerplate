@@ -70,8 +70,8 @@ The folders and files you see in this repositories is how it is expected to be i
     |    └── reader
     |        └── CsvQueryProcessor.java              // This class is used to read data from CSV file
     |        └── QueryProcessingEngine.java          //abstract class containing three abstract methods that should be implemented in CsvQueryProcessor class
-    |    └── test                                     // all your test cases are written using JUnit, these test cases can be run by selecting Run As -> JUnit Test 
-    |
+    |    └── test                                     
+    |        |__ DataMungerTest.java                // all your test cases are written using JUnit, these test cases can be run by selecting Run As -> JUnit Test 
     ├── .classpath                                    // This file is generated automatically while creating the project in eclipse
     |
     ├── .hobbes                                       // Hobbes specific config options, such as type of evaluation schema, type of tech stack etc., Have saved default values for convenience
@@ -89,7 +89,7 @@ The folders and files you see in this repositories is how it is expected to be i
 
 1. Clone the base boilerplate in the folder **assignment-solution-step3** of your local machine
      
-    `git clone https://gitlab-dev.stackroute.in/datamunger-java/step-3-boilerplate.git assignment-solution-step3`
+    `git clone https://gitlab-cts.stackroute.in/database_engine/DataMungerStep3_Boilerplate.git assignment-solution-step3`
 
 2. Navigate to assignment-solution-step3 folder
 
@@ -103,7 +103,7 @@ The folders and files you see in this repositories is how it is expected to be i
 
 5. Add your new repository reference as remote
 
-     `git remote add origin https://gitlab.training.com/{{yourusername}}/assignment-solution-step3.git`
+     `git remote add origin https://gitlab-cts.stackroute.in/{{yourusername}}/assignment-solution-step3.git`
 
      **Note: {{yourusername}} should be replaced by your username from gitlab**
 
