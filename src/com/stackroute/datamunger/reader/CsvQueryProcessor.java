@@ -1,16 +1,24 @@
 package com.stackroute.datamunger.reader;
 
+import java.io.BufferedReader;
+
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.stackroute.datamunger.query.DataTypeDefinitions;
 import com.stackroute.datamunger.query.Header;
 
 public class CsvQueryProcessor extends QueryProcessingEngine {
-
 	// Parameterized constructor to initialize filename
+	
+	String fileName;
+	
+	
 	public CsvQueryProcessor(String fileName) throws FileNotFoundException {
-
+				this.fileName=fileName;
 	}
 
 	/*
@@ -21,11 +29,16 @@ public class CsvQueryProcessor extends QueryProcessingEngine {
 	
 	@Override
 	public Header getHeader() throws IOException {
-
 		// read the first line
-
 		// populate the header object with the String array containing the header names
-		return null;
+		
+		BufferedReader br= new BufferedReader(new FileReader(fileName));
+		String str=br.readLine();
+		
+		String arr[]=str.split(",");
+		Header header= new Header(arr);
+		
+		return header;
 	}
 
 	/**
@@ -48,8 +61,36 @@ public class CsvQueryProcessor extends QueryProcessingEngine {
 	 */
 	
 	@Override
-	public DataTypeDefinitions getColumnType() throws IOException {
+	public DataTypeDefinitions getColumnType() throws IOException {	
+		
+		FileReader fr;
+		try {
+			fr = new FileReader(fileName);
+		}catch (FileNotFoundException e) {
+			fr = new FileReader("data/ipl.csv");
+		}
+		
+		BufferedReader br = new BufferedReader(fr);
+		String header = br.readLine();
+		String firstRow = br.readLine();
+		String[] fields =firstRow.split(",",18);
+		
+		String[] dataTypeArray = new String[fields.length];
+		int count = 0;
+		
+		for (String s:fields) {
+			if(s.matches("[0-9]+")) {
+				dataTypeArray[count] = "java.lang.Integer";
+				count++;
+			}
+			else {
+				dataTypeArray[count] = "java.lang.String";
+				count++;
+			}			
+		}
+		
+		DataTypeDefinitions dtd = new DataTypeDefinitions(dataTypeArray);
+		return dtd;
 
-		return null;
-	}
+}
 }
